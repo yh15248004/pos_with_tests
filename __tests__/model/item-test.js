@@ -1,7 +1,7 @@
 jest.dontMock('../../src/model/item');
 
 describe(',all()', function() {
-  it('should return corret text', function() {
+  it('should return corret array', function() {
     var Item = require('../../src/model/item');
 
     var result = Item.all();
