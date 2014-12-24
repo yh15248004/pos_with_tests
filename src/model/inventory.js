@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 function Inventory(cart) {
   this.cart = cart;
 }
@@ -16,3 +18,5 @@ Inventory.prototype.toString = function() {
          '**********************';
 
 };
+
+module.exports = Inventory;

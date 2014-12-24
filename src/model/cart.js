@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 function Cart() {
   this.cartItems = [];
 }
@@ -72,3 +74,5 @@ Cart.prototype.getSaveAmount = function() {
 
   return noSaveTotalAmount - totalAmount;
 };
+
+module.exports = Cart;

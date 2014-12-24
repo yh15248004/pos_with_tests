@@ -1,3 +1,6 @@
+var _ = require('lodash');
+var Promotion = require('./promotion');
+
 function CartItem(item, count) {
   this.item = item;
   this.count = count || 0;
@@ -41,3 +44,5 @@ CartItem.prototype.toPromotionText = function() {
 CartItem.prototype.getNoSaveTotalAmount = function() {
   return this.item.price * this.count;
 };
+
+module.exports = CartItem;
