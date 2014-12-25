@@ -21,7 +21,7 @@ Cart.prototype.addCartItem = function(cartItem) {
     this.cartItems.push(cartItem);
   }
 
-  return this.cartItems;
+  //return this.cartItems;
 };
 
 Cart.prototype.getCartItemsText = function() {
@@ -55,13 +55,11 @@ Cart.prototype.getSummaryText = function() {
 };
 
 Cart.prototype.getTotalAmount = function() {
-  var totalAmount = 0;
+  
+  return _.reduce(this.cartItems, function(subtotal, cartItem) {
+    return subtotal + cartItem.getSubTotal();
+  },0);
 
-  _.forEach(this.cartItems,function(cartItem) {
-    totalAmount += cartItem.getSubTotal();
-  });
-
-  return totalAmount;
 };
 
 Cart.prototype.getSaveAmount = function() {

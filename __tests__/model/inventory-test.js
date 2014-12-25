@@ -1,5 +1,6 @@
 jest.dontMock('../../src/model/inventory');
 jest.dontMock('moment');
+//var Cart = require('../../src/model/cart.js');
 
 describe('Inventory', function() {
 
@@ -21,7 +22,11 @@ describe('Inventory', function() {
       getSummaryText.mockReturnValue('总计：51.00(元)\n' +
       '节省：7.50(元)\n');
 
-      var cart = {getCartItemsText:getCartItemsText,
+      //var cart = new Cart();
+      //cart.getCartItemsText.mockReturnValue('');
+      
+      var cart = {
+        getCartItemsText:getCartItemsText,
         getPromotionText:getPromotionText,
         getSummaryText:getSummaryText
       };
