@@ -107,6 +107,11 @@ describe('Cart', function() {
 
       expect(result).toEqual('promotionText');
     });
+  });
 
+  describe('#getSummaryText()', function() {
+    it('should return correct value', function() {
+      
+    });
   });
 });

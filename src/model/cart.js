@@ -55,7 +55,7 @@ Cart.prototype.getSummaryText = function() {
 };
 
 Cart.prototype.getTotalAmount = function() {
-  
+
   return _.reduce(this.cartItems, function(subtotal, cartItem) {
     return subtotal + cartItem.getSubTotal();
   },0);
@@ -63,14 +63,11 @@ Cart.prototype.getTotalAmount = function() {
 };
 
 Cart.prototype.getSaveAmount = function() {
-  var noSaveTotalAmount = 0;
-  var totalAmount = this.getTotalAmount();
 
-  _.forEach(this.cartItems,function(cartItem) {
-    noSaveTotalAmount += cartItem.getNoSaveTotalAmount();
-  });
-
-  return noSaveTotalAmount - totalAmount;
+  return _.reduce(this.cartItems, function(noSaveTotalAmount, cartItem) {
+    return noSaveTotalAmount + cartItem.getNoSaveTotalAmount();
+  },0) - this.getTotalAmount();
+  
 };
 
 module.exports = Cart;
