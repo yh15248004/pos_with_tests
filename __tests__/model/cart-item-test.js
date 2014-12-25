@@ -28,4 +28,16 @@ describe('CartItem', function() {
       expect(result).toEqual(12);
     });
   });
+
+  describe('#toCartItemText()', function() {
+    it('should return correct text', function() {
+
+      var result = cartItem.toCartItemText();
+
+      expect(result).toEqual('名称：' + '雪碧' +
+      '，数量：' + 5 + '瓶' +
+      '，单价：' + 3.00 +
+      '(元)，小计：' + 12.00 + '(元)\n');
+    });
+  });
 });
