@@ -3,9 +3,12 @@ jest.dontMock('lodash');
 
 describe('Cart', function() {
   var cart;
+  var cartItem;
   beforeEach(function() {
     var Cart = require('../../src/model/cart');
+    var CartItem = require('../../src/model/cart-item');
     cart = new Cart();
+    cartItem = new CartItem();
   });
 
   describe('#findCartItem()', function() {
@@ -109,9 +112,42 @@ describe('Cart', function() {
     });
   });
 
-  describe('#getSummaryText()', function() {
-    it('should return correct value', function() {
+  // describe('#getSummaryText()', function() {
+  //   it('should return correct value', function() {
+  //
+  //     cart.cartItems = [{
+  //       item:{barcode:'ITEM000001',
+  //       name:'雪碧',
+  //       unit:'瓶',
+  //       price:3.00},
+  //       count:2,
+  //       getBarcode:getBarcode
+  //     }];
+  //
+  //   });
+  // });
+
+  describe('#getTotalAmount()', function() {
+    it('should return correct amount', function() {
+      cartItem.getSubTotal.mockReturnValue(10);
+      cart.cartItems = [{getSubTotal : cartItem.getSubTotal}];
+
+      var result = cart.getTotalAmount();
+      expect(result).toBe(10);
+    });
+  });
+
+  describe('#getSaveAmount()', function() {
+    it('should return correct amount', function() {
+      cartItem.getNoSaveTotalAmount.mockReturnValue(10);
+      cartItem.getSubTotal.mockReturnValue(3);
       
+      cart.cartItems = [
+      {getNoSaveTotalAmount : cartItem.getNoSaveTotalAmount,
+       getSubTotal : cartItem.getSubTotal}];
+
+      var result = cart.getSaveAmount();
+      expect(result).toBe(7);
     });
   });
 });
