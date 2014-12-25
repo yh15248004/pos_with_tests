@@ -8,7 +8,7 @@ describe('CartItem', function() {
   beforeEach(function() {
     CartItem = require('../../src/model/cart-item');
     cartItem = new CartItem({
-         barcode : 'ITEM000001',name:'雪碧',unit:'瓶',price:3.00},5);
+         barcode : 'ITEM000001',name:'雪碧',unit:'瓶',price:3.00}, 5);
     });
 
   describe('#getBarcode()', function() {
@@ -31,7 +31,7 @@ describe('CartItem', function() {
     it('should return subTotal without promotion', function() {
 
       cartItem = new CartItem({
-        barcode : 'ITEM000003',name:'雪碧',unit:'瓶',price:3.00},5);
+        barcode : 'ITEM000003',name:'雪碧',unit:'瓶',price:3.00}, 5);
 
       var result =  cartItem.getSubTotal();
 
@@ -64,7 +64,7 @@ describe('CartItem', function() {
 
     it('should return correct text', function() {
       cartItem = new CartItem({
-        barcode : 'ITEM000003',name:'雪碧',unit:'瓶',price:3.00},5);
+        barcode : 'ITEM000003',name:'雪碧',unit:'瓶',price:3.00}, 5);
 
       var result = cartItem.toPromotionText();
 

@@ -1,7 +1,9 @@
 jest.dontMock('../../src/model/promotion');
 
 describe(',all()', function() {
+
   it('should return corret array', function() {
+
     var Promotion = require('../../src/model/promotion');
 
     var result = Promotion.all();
@@ -11,7 +13,9 @@ describe(',all()', function() {
         'ITEM000000',
         'ITEM000001',
         'ITEM000005'
-        ])
-      ]);
-    });
+      ])
+    ]);
+    
   });
+
+});
