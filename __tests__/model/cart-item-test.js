@@ -3,13 +3,13 @@ jest.dontMock('../../src/model/promotion');
 jest.dontMock('lodash');
 
 describe('CartItem', function() {
-  var cartItem;
   var CartItem;
+  var cartItem;
   beforeEach(function() {
     CartItem = require('../../src/model/cart-item');
     cartItem = new CartItem({
-      barcode:'ITEM000001',name:'雪碧',unit:'瓶',price:3.00},5);
-  });
+         barcode:'ITEM000001',name:'雪碧',unit:'瓶',price:3.00},5);
+    });
 
   describe('#getBarcode()', function() {
     it('should return correct barcode', function() {
@@ -21,12 +21,23 @@ describe('CartItem', function() {
   });
 
   describe('#getSubTotal()', function() {
-    it('should return correct subTotal', function() {
+    it('should return subTotal with promotion', function() {
 
       var result = cartItem.getSubTotal();
 
       expect(result).toEqual(12);
     });
+
+    it('should return subTotal without promotion', function() {
+
+      cartItem = new CartItem({
+        barcode:'ITEM000003',name:'雪碧',unit:'瓶',price:3.00},5);
+
+      var result =  cartItem.getSubTotal();
+
+      expect(result).toEqual(15);
+    });
+
   });
 
   describe('#toCartItemText()', function() {
@@ -35,9 +46,9 @@ describe('CartItem', function() {
       var result = cartItem.toCartItemText();
 
       expect(result).toEqual('名称：' + '雪碧' +
-      '，数量：' + 5 + '瓶' +
-      '，单价：' + '3.00' +
-      '(元)，小计：' + '12.00' + '(元)\n');
+        '，数量：' + 5 + '瓶' +
+        '，单价：' + '3.00' +
+        '(元)，小计：' + '12.00' + '(元)\n');
     });
   });
 
@@ -59,5 +70,5 @@ describe('CartItem', function() {
       expect(result).toBe(15);
     });
   });
-  
+
 });

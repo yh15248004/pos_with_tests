@@ -1,6 +1,6 @@
 jest.dontMock('../../src/model/inventory');
 jest.dontMock('moment');
-var Cart = require('../../src/model/cart.js');
+var Cart = require('../../src/model/cart');
 
 describe('Inventory', function() {
 

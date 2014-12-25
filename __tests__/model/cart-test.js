@@ -14,9 +14,8 @@ describe('Cart', function() {
   describe('#findCartItem()', function() {
     it('should return correct cartItem', function() {
 
-      //var _ = require('lodash');
       var barcode = 'ITEM000001';
-      //var cart = new Cart();
+
       var getBarcode = jest.genMockFn();
       getBarcode.mockReturnValue('ITEM000001');
 
@@ -72,9 +71,9 @@ describe('Cart', function() {
       var getBarcode = jest.genMockFn();
       getBarcode.mockReturnValue('ITEM000001');
 
-      cartItem = {item:'item',
-                  count:5,
-                  getBarcode:getBarcode};
+      cartItem = {item : 'item',
+                  count : 5,
+                  getBarcode : getBarcode};
 
       cart.addCartItem(cartItem);
 
