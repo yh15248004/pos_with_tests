@@ -81,7 +81,6 @@ describe('Cart', function() {
       expect(cart.cartItems[0].item).toEqual('item');
       expect(cart.cartItems[0].count).toEqual(5);
     });
-
   });
 
   describe('#getCartItemsText()', function() {
@@ -126,7 +125,6 @@ describe('Cart', function() {
 
        expect(result).toEqual('总计：' + '3.00' +
         '(元)\n' + '节省：' + '7.00' + '(元)\n');
-
     });
   });
 
