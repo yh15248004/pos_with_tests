@@ -2,10 +2,13 @@ jest.dontMock('../../src/model/cart');
 jest.dontMock('lodash');
 
 describe('Cart', function() {
+  beforeEach(function() {
+    var Cart = require('../../src/model/cart');
+  });
 
   describe('#findCartItem()', function() {
     it('should return correct value', function() {
-      var Cart = require('../../src/model/cart');
+
       //var _ = require('lodash');
       var barcode = 'ITEM000001';
       var cart = new Cart();
