@@ -112,20 +112,23 @@ describe('Cart', function() {
     });
   });
 
-  // describe('#getSummaryText()', function() {
-  //   it('should return correct value', function() {
-  //
-  //     cart.cartItems = [{
-  //       item:{barcode:'ITEM000001',
-  //       name:'雪碧',
-  //       unit:'瓶',
-  //       price:3.00},
-  //       count:2,
-  //       getBarcode:getBarcode
-  //     }];
-  //
-  //   });
-  // });
+  describe('#getSummaryText()', function() {
+    it('should return correct text', function() {
+
+      cartItem.getNoSaveTotalAmount.mockReturnValue(10);
+      cartItem.getSubTotal.mockReturnValue(3);
+
+      cart.cartItems = [
+      {getNoSaveTotalAmount : cartItem.getNoSaveTotalAmount,
+       getSubTotal : cartItem.getSubTotal}];
+
+       var result = cart.getSummaryText();
+
+       expect(result).toEqual('总计：' + '3.00' +
+        '(元)\n' + '节省：' + '7.00' + '(元)\n');
+
+    });
+  });
 
   describe('#getTotalAmount()', function() {
     it('should return correct amount', function() {
@@ -141,7 +144,7 @@ describe('Cart', function() {
     it('should return correct amount', function() {
       cartItem.getNoSaveTotalAmount.mockReturnValue(10);
       cartItem.getSubTotal.mockReturnValue(3);
-      
+
       cart.cartItems = [
       {getNoSaveTotalAmount : cartItem.getNoSaveTotalAmount,
        getSubTotal : cartItem.getSubTotal}];
@@ -150,4 +153,5 @@ describe('Cart', function() {
       expect(result).toBe(7);
     });
   });
+
 });
