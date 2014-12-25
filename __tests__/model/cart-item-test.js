@@ -40,4 +40,15 @@ describe('CartItem', function() {
       '(元)，小计：' + '12.00' + '(元)\n');
     });
   });
+
+  describe('#toPromotionText()', function() {
+    it('should return correct text', function() {
+
+      var result = cartItem.toPromotionText();
+
+      expect(result).toEqual('名称：' + '雪碧' +
+      '，数量：' + 1 + '瓶' + '\n');
+    });
+  });
+
 });
