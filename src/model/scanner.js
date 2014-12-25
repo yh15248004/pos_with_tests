@@ -7,7 +7,7 @@ function Scanner() {
 
 Scanner.prototype.getCartItem = function(tag) {
   var items = Item.all();
-
+  
   var tagArray  = tag.split('-');
   var barcode = tagArray[0];
   var count = 1;
