@@ -51,4 +51,13 @@ describe('CartItem', function() {
     });
   });
 
+  describe('#getNoSaveTotalAmount()', function() {
+    it('should return correct barcode', function() {
+
+      var result = cartItem.getNoSaveTotalAmount();
+
+      expect(result).toBe(15);
+    });
+  });
+  
 });
