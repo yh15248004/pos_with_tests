@@ -12,14 +12,13 @@ describe('Scanner', function() {
     it('should return correct cartItem', function() {
 
       var tag = 'ITEM000001';
-    
+
       var result = scanner.getCartItem(tag);
       expect(result.item).toEqual({barcode : 'ITEM000001',
                                    name : '雪碧',
                                    unit : '瓶',
                                    price : 3.00});
       expect(result.count).toBe(1);
-
     });
 
     it('should return correct cartItem', function() {
@@ -32,7 +31,6 @@ describe('Scanner', function() {
                                    price : 15.00});
       expect(result.count).toBe(2);
     });
-
   });
 
 });
