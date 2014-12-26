@@ -3,9 +3,6 @@ jest.dontMock('../../src/model/item');
 jest.dontMock('../../src/model/cart-item');
 jest.dontMock('lodash');
 
-//var Item = require('../../src/model/item');
-//var CartItem = require('../../src/model/cart-item');
-
 describe('Scanner', function() {
 
   describe('#getCartItem()', function() {
@@ -15,10 +12,7 @@ describe('Scanner', function() {
     it('should return correct cartItem', function() {
 
       var tag = 'ITEM000001';
-      // Item.all.mockReturnValue([{barcode : 'ITEM000001'},
-      //                           {barcode : 'ITEM000003'}]);
-      // Item = {all : Item.all};
-
+    
       var result = scanner.getCartItem(tag);
       expect(result.item).toEqual({barcode : 'ITEM000001',
                                    name : '雪碧',
